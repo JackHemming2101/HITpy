@@ -16,7 +16,5 @@ def read_object(path):
 
     print(ObjectClassArray[1].show_position())
 
-        #if TimeObjectArray[0] = "Resi":
-            #print()
 
 read_object('Maps/Map1.txt')
