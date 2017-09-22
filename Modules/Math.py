@@ -12,6 +12,15 @@ class Resistor:
     def show_connection(self):
         return([self.group_in,self.group_out])
 
+    def check_connect(self,intake):
+        if int(self.group_out) == intake:
+            return(True)
+        else:
+            return(False)
+
+    def get_connect(self):
+        return(self.group_in,self.group_out)
+
 class Link:
     def __init__(self,x,y,x2,y2):
         self.position_start_x = x
@@ -28,7 +37,7 @@ def read_object(path):
 
     for index in range(len(ObjectArray)):
         ObjectArray[index] = ObjectArray[index].split()
-    print(ObjectArray[1])
+    #print(ObjectArray[1])
     ObjectClassArray = []
     for index in range(len(ObjectArray)):
         if ObjectArray[index][0] == 'Resi' :
@@ -37,15 +46,17 @@ def read_object(path):
         if ObjectArray[index][0] == 'Link' :
             ObjectClassArray.append(Link(ObjectArray[index][1],ObjectArray[index][2],ObjectArray[index][3],ObjectArray[index][4]))
 
-    return(ObjectClassArray[1].show_connection(),'Connection')
+    return(ObjectClassArray)
 
 
 def Generate_resistor(range_pos,renge_resist):
     Type = "Resi"
     x = random.randrange(0,range_pos,1)
     y = random.randrange(0,range_pos,1)
+    group_in = random.randrange(0,5,1)
+    group_out= random.randrange(0,5,1)
     resist = random.randrange(0,renge_resist,10)
-    return([Type,x,y,resist])
+    return([Type,x,y,resist,group_in,group_out])
 
 def Generate_file(path):
     File = open(path,'w')
