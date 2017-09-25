@@ -93,7 +93,7 @@ def find_res_map(Objects):
                     index_b+=1
                 if resist_posl_par>0:
                     Resistor_paralel_map.append(resist_posl_par)
-                print(Resistor_paralel_map)
+                    print(Resistor_paralel_map)
                     Resistor_paralel_map.append(Objects[index_b].get_resist())
                 #print(Resistor_paralel_map,'LIST')
                 index_b +=1
